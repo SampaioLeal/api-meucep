@@ -5,3 +5,9 @@ const apiViaCEP = axios.create({
 });
 
 export default apiViaCEP;
+
+export async function getCEPInfo(cep: string) {
+  const response = await apiViaCEP.get<ViaCEPInfo>(cep + '/json');
+
+  return response.data;
+}

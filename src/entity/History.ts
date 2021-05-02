@@ -6,6 +6,9 @@ export class History {
   id!: ObjectID;
 
   @Column()
+  searched_at!: Date;
+
+  @Column()
   cep!: string;
 
   @Column()

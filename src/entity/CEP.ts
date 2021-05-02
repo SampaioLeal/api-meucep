@@ -5,7 +5,9 @@ export class CEP {
   @ObjectIdColumn()
   id!: ObjectID;
 
-  @Column()
+  @Column({
+    unique: true,
+  })
   cep!: string;
 
   @Column()
@@ -24,5 +26,5 @@ export class CEP {
   complement!: string;
 
   @Column()
-  ddd!: number;
+  ddd!: string;
 }
