@@ -2,7 +2,7 @@ export default {
   useUnifiedTopology: true,
   type: 'mongodb',
   url: process.env.MONGO_URL,
-  synchronize: true,
+  synchronize: false,
   logging: false,
   entities: ['src/entity/**/*.ts'],
   migrations: ['src/migration/**/*.ts'],
