@@ -2,14 +2,17 @@ import express from 'express';
 import cors from 'cors';
 import router from '../routes';
 
-export function initExpress(port: number) {
-  const app = express();
+const port = Number(process.env.PORT) || 3000;
+const server = express();
 
-  app.use(cors({ origin: '*' }));
+server.use(cors({ origin: '*' }));
 
-  app.use(router);
+server.use(router);
 
-  app.listen(port, () => {
+export default server;
+
+export function initExpress() {
+  server.listen(port, () => {
     console.log(`Server started at port ${port}!`);
   });
 }
