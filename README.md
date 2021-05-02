@@ -1,50 +1,51 @@
-# NodeTS
+# MeuCEP API
 
-A NodeJS Typescript templat for building beautiful applications
+API desenvolvida para o projeto MeuCEP, que consiste na obtenção e armazenamento de CEPs brasileiros e registro de histórico de pesquisa utilizando a API do [ViaCEP](https://viacep.com.br/).
 
-## Installation
+## Instalação
 
-Simply install all packages using `npm` or `yarn`:
+A princípio deve-se instalar os pacotes utilizando `npm` ou `yarn`:
 
 ```
 npm install
 ```
 
-or
+ou
 
 ```
 yarn install
 ```
 
-## Features
+Após a instalação dos pacotes é necessário configurar as variáveis de ambiente para a inicialização do servidor.
+As variáveis utilizadas podem ser encontradas no arquivo `.env.example` na raiz do projeto.
 
-- Typescript support
-- Nodemon with ts-node for Typescript compiling and watch
-- ESLint with Typescript plugins for code linting
-- Prettier with their ESLint plugin for code beautifying
-- package.json scripts for build, start development build and watch files, lint and fix, run prettier formatter...
-- tsconfig.json with some initial configs
-- Nodemon default configs
-- Prettier default configs
-
-Note: Feel free to search for new configs and set standards for your project, this is just a default setup that you can fork and customize.
-
-## Main NodeJS File
-
-In order to use a main script that isn't called index.ts and index.js (production build), you have to change some commands at `nodemon.json` and `package.json`:
-
-**nodemon.json**
+`.env.example`:
 
 ```
-{
-  "exec": "ts-node ./src/{YOUR_MAIN_SCRIPT}.ts"
-}
+PORT=3001
+MONGO_URL=mongodb+srv://<username>:<password>@<host>:<port>/<database>
 ```
 
-**package.json**
+## Inicialização
+
+Para inicializar o servidor de desenvolvimento basta rodar o script `dev`:
 
 ```
-"scripts": {
-  "start": "npm run build && node build/{YOUR_MAIN_SCRIPT}.js",
-}
+yarn dev
 ```
+
+ou
+
+```
+npm run dev
+```
+
+Para rodar o serviço em produção o script a ser utilizado é o `start`, o qual irá gerar um build do projeto em JavaScript utilizando o `tsc` na pasta `/build` e rodar o arquivo inicial com o Node.
+
+_Para gerar apenas o build deve-se usar o script `build`._
+
+## Recursos
+
+- Consulta de CEPs de todo o Brasil
+- Armazenamento de CEPs e histórico de pesquisas utilizando MongoDB
+- Testes
