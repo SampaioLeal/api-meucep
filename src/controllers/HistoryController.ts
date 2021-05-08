@@ -18,8 +18,6 @@ class HistoryController {
 
       if (lastHistory.value) return;
 
-      console.log(lastHistory);
-
       const newHistory = historyRepository.create({
         cep: cepObj.cep,
         city: cepObj.city,

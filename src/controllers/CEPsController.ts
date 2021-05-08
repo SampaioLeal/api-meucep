@@ -36,6 +36,7 @@ class CEPsController {
         const newCEP = cepRepository.create({
           ...cepInfo,
         });
+
         cepRepository.save(newCEP);
       }
 
