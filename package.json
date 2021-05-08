@@ -1,10 +1,10 @@
 {
   "name": "nodets",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "build/src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "npm run build && node build/src/index.js",
+    "start": "node build/src/index.js",
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts --watch src",
     "build": "rimraf ./build && npx tsc",
     "lint": "eslint . --ext .ts",
