@@ -23,7 +23,27 @@ As variáveis utilizadas podem ser encontradas no arquivo `.env.example` na raiz
 
 ```
 PORT=3001
-MONGO_URL=mongodb+srv://<username>:<password>@<host>:<port>/<database>
+```
+
+Também será necessário configurar o banco de dados através do arquivo de configuração do TypeORM (ormconfig.[js | ts | json | yml]):
+
+```
+{
+  "useUnifiedTopology": true,
+  "type": "mongodb",
+  "url": "mongodb+srv://USER:PASSWORD@HOST/DATABASE",
+  "synchronize": false,
+  "logging": false,
+  "entities": ["src/entity/**/*.ts"],
+  "migrations": ["src/migration/**/*.ts"],
+  "subscribers": ["src/subscriber/**/*.ts"],
+  "cli": {
+    "entitiesDir": "src/entity",
+    "migrationsDir": "src/migration",
+    "subscribersDir": "src/subscriber"
+  }
+}
+
 ```
 
 ## Inicialização
